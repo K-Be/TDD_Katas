@@ -13,6 +13,8 @@
 		13E50A5E23EEC021009A5495 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A5D23EEC021009A5495 /* Game.swift */; };
 		13E50A6023EED1C2009A5495 /* Strike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A5F23EED1C2009A5495 /* Strike.swift */; };
 		13E50A6223EED26A009A5495 /* StrikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A6123EED26A009A5495 /* StrikeTests.swift */; };
+		13E50A6423EEDC6C009A5495 /* StrikesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A6323EEDC6C009A5495 /* StrikesStorage.swift */; };
+		13E50A6623EEE05C009A5495 /* StrikesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A6523EEE05C009A5495 /* StrikesStorageTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 		13E50A5D23EEC021009A5495 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		13E50A5F23EED1C2009A5495 /* Strike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strike.swift; sourceTree = "<group>"; };
 		13E50A6123EED26A009A5495 /* StrikeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikeTests.swift; sourceTree = "<group>"; };
+		13E50A6323EEDC6C009A5495 /* StrikesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikesStorage.swift; sourceTree = "<group>"; };
+		13E50A6523EEE05C009A5495 /* StrikesStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikesStorageTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 				13E50A4623EEBE75009A5495 /* BowlingGameKata.h */,
 				13E50A5D23EEC021009A5495 /* Game.swift */,
 				13E50A5F23EED1C2009A5495 /* Strike.swift */,
+				13E50A6323EEDC6C009A5495 /* StrikesStorage.swift */,
 				13E50A4723EEBE75009A5495 /* Info.plist */,
 			);
 			path = BowlingGameKata;
@@ -90,6 +95,7 @@
 			children = (
 				13E50A5123EEBE76009A5495 /* BowlingGameKataTests.swift */,
 				13E50A6123EED26A009A5495 /* StrikeTests.swift */,
+				13E50A6523EEE05C009A5495 /* StrikesStorageTests.swift */,
 				13E50A5323EEBE76009A5495 /* Info.plist */,
 			);
 			path = BowlingGameKataTests;
@@ -205,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E50A6423EEDC6C009A5495 /* StrikesStorage.swift in Sources */,
 				13E50A5E23EEC021009A5495 /* Game.swift in Sources */,
 				13E50A6023EED1C2009A5495 /* Strike.swift in Sources */,
 			);
@@ -214,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E50A6623EEE05C009A5495 /* StrikesStorageTests.swift in Sources */,
 				13E50A5223EEBE76009A5495 /* BowlingGameKataTests.swift in Sources */,
 				13E50A6223EED26A009A5495 /* StrikeTests.swift in Sources */,
 			);
