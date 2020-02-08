@@ -45,6 +45,23 @@ class BowlingGameKataTests: XCTestCase {
 		}
 	}
 	
+	
+	func testZeroPinsDoesNotChangeScore() {
+		
+		for firstRoll in 0...9 {
+			for secondRoll in 0...(9-firstRoll) {
+				let game = createGame()
+				game.roll(firstRoll);
+				game.roll(secondRoll);
+				let score1 = game.score()
+				game.roll(0)
+				XCTAssert(score1 == game.score(), "\(score1) != \(game.score())")
+		}
+		}
+		
+	}
+	
+	
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
