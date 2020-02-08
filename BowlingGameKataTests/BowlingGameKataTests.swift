@@ -58,16 +58,30 @@ class BowlingGameKataTests: XCTestCase {
 				XCTAssert(score1 == game.score(), "\(score1) != \(game.score())")
 		}
 		}
-		
 	}
 	
 	
-    func testPerformanceExample() {
+	func testGameWithNormalFramesChangesOnly20Times() {
+		
+		let game = createGame()
+		
+		let countPinsInRoll = 2
+		for _ in 1...21 {
+			game.roll(countPinsInRoll);
+		}
+		
+		XCTAssert(game.score() == 20 * countPinsInRoll, "gameScore == \(game.score()), but should be \(20 * countPinsInRoll)")
+	}
+	
+	
+	func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
+	
+	
 
 	func createGame() -> Game {
 		return Game()
