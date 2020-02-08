@@ -23,6 +23,14 @@ class BowlingGameKataTests: XCTestCase {
 	}
 	
 	
+	func testInitilScoreDoesNotChangedWithZeroPins() {
+		let game = createGame();
+		self.enumerateFrames { (_) in
+			game.roll(0);
+			XCTAssert(game.score() == 0);
+		}
+	}
+	
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
@@ -33,6 +41,13 @@ class BowlingGameKataTests: XCTestCase {
 
 	func createGame() -> Game {
 		return Game()
+	}
+	
+	
+	func enumerateFrames(withBlock block: (Int) -> Void) {
+		for i in 1...10 {
+			block(i)
+		}
 	}
 	
 }
