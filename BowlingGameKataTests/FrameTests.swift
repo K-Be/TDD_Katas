@@ -39,6 +39,15 @@ class FrameTests: XCTestCase {
 	}
 	
 	
+	func testNegativeKnocks() {
+		var frame = Frame(frameIndex: 10)
+		
+		frame.knock(-3)
+		
+		XCTAssertEqual(frame.knockedPinsCount, 0)
+	}
+	
+	
 	
 
     func testPerformanceExample() {

@@ -23,6 +23,10 @@ struct Frame {
 	}
 	
 	mutating func knock(_ countPins: Int) {
+		guard countPins > 0 else {
+			return
+		}
+		
 		knockedPinsCount += countPins
 	}
 	
