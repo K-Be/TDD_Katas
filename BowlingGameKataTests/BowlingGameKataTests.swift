@@ -90,6 +90,25 @@ class BowlingGameKataTests: XCTestCase {
 	}
 	
 	
+	func testStrikeOffAfterTwoSteps() {
+		
+		let game = createGame()
+		
+		game.roll(10)
+		
+		let inFirstRoll = 3
+		game.roll(3)
+		let inSecondRoll = 5
+		game.roll(inSecondRoll)
+		
+		let inThird = 1
+		game.roll(inThird)
+		
+		XCTAssert(game.score() == 10 + 2 * inFirstRoll + 2 * inSecondRoll + inThird)
+		
+	}
+	
+	
 	func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

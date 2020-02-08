@@ -21,8 +21,13 @@ public class Game {
 		if (rollIndex < 20)
 		{
 			scoreVal += pinsCount
-			if strikeFrameIndex != nil {
+			if let strikeFrameIndex = strikeFrameIndex {
 				scoreVal += pinsCount
+				
+				let strikeRollIndex = strikeFrameIndex * 2
+				if rollIndex - strikeRollIndex >= 2 {
+					self.strikeFrameIndex = nil
+				}
 			}
 			if pinsCount == countPinsInFrame
 			{
