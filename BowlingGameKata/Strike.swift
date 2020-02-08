@@ -13,7 +13,8 @@ struct Strike {
 	let startRollIndex : Int
 	
 	func isActive(forRoll roll : Int) -> Bool {
-		return false
+		let active = (roll > startRollIndex) && (roll - startRollIndex) <= 2 
+		return active
 	}
 }
 

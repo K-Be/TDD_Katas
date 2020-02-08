@@ -24,6 +24,21 @@ class StrikeTests: XCTestCase {
 		let strike = Strike(startRollIndex: strikeIndex)
 		XCTAssert(!strike.isActive(forRoll: strikeIndex + 3))
 	}
+	
+	
+	func testNotActiveInPast() {
+		let strikeIndex = 3
+		let strike = Strike(startRollIndex: strikeIndex)
+		XCTAssert(!strike.isActive(forRoll: 2))
+	}
+	
+	
+	func testNotActiveInCurrentRoll() {
+		let strikeIndex = 3
+		let strike = Strike(startRollIndex: strikeIndex)
+		XCTAssert(!strike.isActive(forRoll: strikeIndex))
+	}
+	
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
