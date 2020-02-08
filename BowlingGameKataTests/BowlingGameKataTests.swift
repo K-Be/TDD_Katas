@@ -12,9 +12,17 @@ import XCTest
 
 class BowlingGameKataTests: XCTestCase {
 		
-    func testCompile() {
-      let _ = Game()
-    }
+	func testCompile() {
+		let _ = self.createGame()
+	}
+	
+	
+	func testInitalValue() {
+		let game = createGame()
+		XCTAssert(game.score() == 0);
+	}
+	
+	
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
@@ -23,4 +31,8 @@ class BowlingGameKataTests: XCTestCase {
         }
     }
 
+	func createGame() -> Game {
+		return Game()
+	}
+	
 }
