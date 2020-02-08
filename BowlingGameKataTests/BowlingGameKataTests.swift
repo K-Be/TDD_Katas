@@ -66,7 +66,7 @@ class BowlingGameKataTests: XCTestCase {
 		let game = createGame()
 		
 		let countPinsInRoll = 2
-		for _ in 1...21 {
+		for _ in 1...(Game.maxCountFrames * 2 + 1)  {
 			game.roll(countPinsInRoll);
 		}
 		
@@ -119,8 +119,29 @@ class BowlingGameKataTests: XCTestCase {
 		let pinsInRollThree = 4
 		game.roll(pinsInRollThree)
 		
-		XCTAssert(game.score() == Game.countPinsInFrame + Game.countPinsInFrame * 2 + pinsInRollThree * 4)
+		XCTAssert(game.score() == Game.countPinsInFrame + Game.countPinsInFrame * 2 + pinsInRollThree * 3, "score = \(game.score()) but should be \(Game.countPinsInFrame + Game.countPinsInFrame * 2 + pinsInRollThree * 3)")
 	}
+	
+	
+	func testSumAfterLastStrike() {
+		
+		let game = createGame()
+		
+		for _ in 1...(2 * Game.maxCountFrames - 2) {
+			game.roll(0);
+		}
+		
+		//last frame
+		game.roll(Game.countPinsInFrame)
+		let countInRoll = 1
+		game.roll(countInRoll)
+		game.roll(countInRoll)
+		
+		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll * 2 + countInRoll * 2)
+	}
+	
+	
+	
 	
 	
 	func testPerformanceExample() {

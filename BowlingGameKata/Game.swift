@@ -10,28 +10,23 @@ import Foundation
 
 public class Game {
 	
-	public static let countPinsInFrame = 10
+	public static let countPinsInFrame = Frame.maxCountPins
+	public static let maxCountFrames = 10
 	
 	var scoreVal = 0
 	var rollIndex = 0
-	var strikeFrameIndex : Int?
-	
+	let strikes = StrikesStorage()
+	var extraRolls = false
 	
 	public func roll(_ pinsCount:Int) {
 		if (rollIndex < 20)
 		{
-			scoreVal += pinsCount
-			if let strikeFrameIndex = strikeFrameIndex {
-				scoreVal += pinsCount
-				
-				let strikeRollIndex = strikeFrameIndex * 2
-				if rollIndex - strikeRollIndex >= 2 {
-					self.strikeFrameIndex = nil
-				}
-			}
+			
+			let countActiveStrikes = strikes.countActiveStrikes(onRoll: rollIndex)
+			scoreVal += (pinsCount + countActiveStrikes * pinsCount)
 			if pinsCount == Game.countPinsInFrame
 			{
-				strikeFrameIndex = rollIndex / 2
+				strikes.addStrike(withRoll: rollIndex)
 			}
 			
 			rollIndex += 1;
