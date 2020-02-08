@@ -64,6 +64,14 @@ class FrameTests: XCTestCase {
 	}
 	
 	
+	func testFrameNotCompleted() {
+		
+		var frame = Frame(frameIndex: 10)
+		
+		frame.knock(Frame.maxCountPins - 1)
+		
+		XCTAssertFalse(frame.frameCompleted())
+	}	
 	
 
 	func testPerformanceExample() {
