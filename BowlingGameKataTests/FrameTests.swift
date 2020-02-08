@@ -30,6 +30,15 @@ class FrameTests: XCTestCase {
 	}
 	
 	
+	func testOverKnock() {
+		var frame = Frame(frameIndex: 10);
+		
+		frame.knock(Frame.maxCountPins + 1);
+		
+		XCTAssertEqual(frame.knockedPinsCount, Frame.maxCountPins)
+	}
+	
+	
 	
 
     func testPerformanceExample() {

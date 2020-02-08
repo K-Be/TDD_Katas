@@ -14,10 +14,16 @@ struct Frame {
 	static let maxCountPins = 10
 	
 	let frameIndex : Int
-	private(set) var knockedPinsCount = 0
+	private(set) var knockedPinsCount = 0 {
+		didSet {
+			if self.knockedPinsCount > Frame.maxCountPins {
+				self.knockedPinsCount = Frame.maxCountPins
+			}
+		}
+	}
 	
 	mutating func knock(_ countPins: Int) {
-		
+		knockedPinsCount += countPins
 	}
 	
 	
