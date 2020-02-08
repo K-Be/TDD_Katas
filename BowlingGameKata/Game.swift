@@ -10,7 +10,7 @@ import Foundation
 
 public class Game {
 	
-	let countPinsInFrame = 10
+	public static let countPinsInFrame = 10
 	
 	var scoreVal = 0
 	var rollIndex = 0
@@ -29,7 +29,7 @@ public class Game {
 					self.strikeFrameIndex = nil
 				}
 			}
-			if pinsCount == countPinsInFrame
+			if pinsCount == Game.countPinsInFrame
 			{
 				strikeFrameIndex = rollIndex / 2
 			}

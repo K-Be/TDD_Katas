@@ -11,7 +11,7 @@ import XCTest
 
 
 class BowlingGameKataTests: XCTestCase {
-		
+	
 	func testCompile() {
 		let _ = self.createGame()
 	}
@@ -33,8 +33,8 @@ class BowlingGameKataTests: XCTestCase {
 	
 
 	func testNormalFrame() {
-		for firstRoll in 0...9 {
-			for secondRoll in 0...(9-firstRoll) {
+		for firstRoll in 0...(Game.countPinsInFrame - 1) {
+			for secondRoll in 0...(Game.countPinsInFrame - 1 - firstRoll) {
 				let game = createGame()
 				game.roll(firstRoll);
 				XCTAssert(game.score() == firstRoll, "should be \(firstRoll), but is \(game.score())")
@@ -48,8 +48,8 @@ class BowlingGameKataTests: XCTestCase {
 	
 	func testZeroPinsDoesNotChangeScore() {
 		
-		for firstRoll in 0...9 {
-			for secondRoll in 0...(9-firstRoll) {
+		for firstRoll in 0...(Game.countPinsInFrame - 1) {
+			for secondRoll in 0...(Game.countPinsInFrame - 1 - firstRoll) {
 				let game = createGame()
 				game.roll(firstRoll);
 				game.roll(secondRoll);
@@ -106,6 +106,20 @@ class BowlingGameKataTests: XCTestCase {
 		
 		XCTAssert(game.score() == 10 + 2 * inFirstRoll + 2 * inSecondRoll + inThird)
 		
+	}
+	
+	
+	func testSumDoubleStrikes() {
+		let game = createGame()
+		
+		game.roll(Game.countPinsInFrame)
+		game.roll(Game.countPinsInFrame)
+		//now we have 2 active strikes
+		
+		let pinsInRollThree = 4
+		game.roll(pinsInRollThree)
+		
+		XCTAssert(game.score() == Game.countPinsInFrame + Game.countPinsInFrame * 2 + pinsInRollThree * 4)
 	}
 	
 	
