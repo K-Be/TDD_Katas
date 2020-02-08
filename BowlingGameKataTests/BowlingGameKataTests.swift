@@ -24,14 +24,27 @@ class BowlingGameKataTests: XCTestCase {
 	
 	
 	func testInitilScoreDoesNotChangedWithZeroPins() {
-		let game = createGame();
+		let game = createGame()
 		self.enumerateFrames { (_) in
 			game.roll(0);
-			XCTAssert(game.score() == 0);
+			XCTAssert(game.score() == 0)
 		}
 	}
 	
 
+	func testNormalFrame() {
+		for firstRoll in 0...9 {
+			for secondRoll in 0...(9-firstRoll) {
+				let game = createGame()
+				game.roll(firstRoll);
+				XCTAssert(game.score() == firstRoll, "should be \(firstRoll), but is \(game.score())")
+				game.roll(secondRoll)
+				let sum = firstRoll + secondRoll;
+				XCTAssert(game.score() == sum, "should be \(sum), but  is \(game.score())")
+			}
+		}
+	}
+	
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

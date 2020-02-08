@@ -10,13 +10,14 @@ import Foundation
 
 public class Game {
 	
+	var scoreVal = 0
 	
 	public func roll(_ pinsCount:Int) {
-		
+		scoreVal += pinsCount
 	}
 	
 	public func score() -> Int {
-		return 0;
+		return scoreVal;
 	}
 }
 
