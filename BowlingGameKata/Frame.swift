@@ -32,7 +32,7 @@ struct Frame {
 	
 	
 	func frameCompleted() -> Bool {
-		return false
+		return self.knockedPinsCount == Frame.maxCountPins
 	}
 	
 }
