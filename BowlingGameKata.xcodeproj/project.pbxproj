@@ -10,6 +10,7 @@
 		13E50A4D23EEBE76009A5495 /* BowlingGameKata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E50A4323EEBE75009A5495 /* BowlingGameKata.framework */; };
 		13E50A5223EEBE76009A5495 /* BowlingGameKataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A5123EEBE76009A5495 /* BowlingGameKataTests.swift */; };
 		13E50A5423EEBE76009A5495 /* BowlingGameKata.h in Headers */ = {isa = PBXBuildFile; fileRef = 13E50A4623EEBE75009A5495 /* BowlingGameKata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13E50A5E23EEC021009A5495 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A5D23EEC021009A5495 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		13E50A4C23EEBE76009A5495 /* BowlingGameKataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BowlingGameKataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E50A5123EEBE76009A5495 /* BowlingGameKataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingGameKataTests.swift; sourceTree = "<group>"; };
 		13E50A5323EEBE76009A5495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13E50A5D23EEC021009A5495 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				13E50A4623EEBE75009A5495 /* BowlingGameKata.h */,
+				13E50A5D23EEC021009A5495 /* Game.swift */,
 				13E50A4723EEBE75009A5495 /* Info.plist */,
 			);
 			path = BowlingGameKata;
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					13E50A4223EEBE75009A5495 = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 					13E50A4B23EEBE76009A5495 = {
 						CreatedOnToolsVersion = 11.2.1;
@@ -195,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E50A5E23EEC021009A5495 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +344,7 @@
 		13E50A5823EEBE76009A5495 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -356,6 +362,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.home.rav.BowlingGameKata;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -363,6 +370,7 @@
 		13E50A5923EEBE76009A5495 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -387,6 +395,7 @@
 		13E50A5B23EEBE76009A5495 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 25WDLLAK34;
@@ -405,6 +414,7 @@
 		13E50A5C23EEBE76009A5495 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 25WDLLAK34;
