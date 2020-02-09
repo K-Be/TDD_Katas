@@ -24,12 +24,18 @@ public class Game {
 		{
 			let countActiveStrikes = strikes.countActiveDuplications(onRoll: rollIndex)
 			scoreVal += (pinsCount + countActiveStrikes * pinsCount)
-			if pinsCount == Game.countPinsInFrame
-			{
-				strikes.addStrike(withRoll: rollIndex)
-			}
 			
 			frame.knock(pinsCount)
+			switch frame.completionStatus() {
+			case .General:
+				break;
+			case .NotCompleted:
+				break;
+			case .Spare:
+				strikes.addSpare(withRoll: rollIndex)
+			case .Strike:
+				strikes.addStrike(withRoll: rollIndex)
+			}
 			if frame.frameCompleted() {
 				let shouldExtraRolls = isLastFrame() && (strikes.countActiveDuplications(onRoll: rollIndex + 1) != 0);
 				frame = Frame(frameIndex: frame.frameIndex + 1)
