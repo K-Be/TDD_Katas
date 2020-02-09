@@ -13,10 +13,8 @@
 		13E50A5223EEBE76009A5495 /* BowlingGameKataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A5123EEBE76009A5495 /* BowlingGameKataTests.swift */; };
 		13E50A5423EEBE76009A5495 /* BowlingGameKata.h in Headers */ = {isa = PBXBuildFile; fileRef = 13E50A4623EEBE75009A5495 /* BowlingGameKata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13E50A5E23EEC021009A5495 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A5D23EEC021009A5495 /* Game.swift */; };
-		13E50A6023EED1C2009A5495 /* Strike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A5F23EED1C2009A5495 /* Strike.swift */; };
-		13E50A6223EED26A009A5495 /* StrikeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A6123EED26A009A5495 /* StrikeTests.swift */; };
-		13E50A6423EEDC6C009A5495 /* StrikesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A6323EEDC6C009A5495 /* StrikesStorage.swift */; };
-		13E50A6623EEE05C009A5495 /* StrikesStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A6523EEE05C009A5495 /* StrikesStorageTests.swift */; };
+		13E50A6423EEDC6C009A5495 /* DuplicationsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A6323EEDC6C009A5495 /* DuplicationsStorage.swift */; };
+		13E50A6623EEE05C009A5495 /* DuplicationsStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A6523EEE05C009A5495 /* DuplicationsStorageTests.swift */; };
 		13E50A6823EEEE91009A5495 /* Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A6723EEEE91009A5495 /* Frame.swift */; };
 		13E50A6C23EEF071009A5495 /* FrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E50A6B23EEF071009A5495 /* FrameTests.swift */; };
 /* End PBXBuildFile section */
@@ -41,10 +39,8 @@
 		13E50A5123EEBE76009A5495 /* BowlingGameKataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingGameKataTests.swift; sourceTree = "<group>"; };
 		13E50A5323EEBE76009A5495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13E50A5D23EEC021009A5495 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		13E50A5F23EED1C2009A5495 /* Strike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strike.swift; sourceTree = "<group>"; };
-		13E50A6123EED26A009A5495 /* StrikeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikeTests.swift; sourceTree = "<group>"; };
-		13E50A6323EEDC6C009A5495 /* StrikesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikesStorage.swift; sourceTree = "<group>"; };
-		13E50A6523EEE05C009A5495 /* StrikesStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikesStorageTests.swift; sourceTree = "<group>"; };
+		13E50A6323EEDC6C009A5495 /* DuplicationsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicationsStorage.swift; sourceTree = "<group>"; };
+		13E50A6523EEE05C009A5495 /* DuplicationsStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicationsStorageTests.swift; sourceTree = "<group>"; };
 		13E50A6723EEEE91009A5495 /* Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frame.swift; sourceTree = "<group>"; };
 		13E50A6B23EEF071009A5495 /* FrameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,9 +87,8 @@
 			children = (
 				13E50A4623EEBE75009A5495 /* BowlingGameKata.h */,
 				13E50A5D23EEC021009A5495 /* Game.swift */,
-				13E50A5F23EED1C2009A5495 /* Strike.swift */,
 				136226A223F05AE40035C9C8 /* Duplication.swift */,
-				13E50A6323EEDC6C009A5495 /* StrikesStorage.swift */,
+				13E50A6323EEDC6C009A5495 /* DuplicationsStorage.swift */,
 				13E50A6723EEEE91009A5495 /* Frame.swift */,
 				13E50A4723EEBE75009A5495 /* Info.plist */,
 			);
@@ -104,9 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				13E50A5123EEBE76009A5495 /* BowlingGameKataTests.swift */,
-				13E50A6123EED26A009A5495 /* StrikeTests.swift */,
 				136226A423F05B3C0035C9C8 /* DuplicationTests.swift */,
-				13E50A6523EEE05C009A5495 /* StrikesStorageTests.swift */,
+				13E50A6523EEE05C009A5495 /* DuplicationsStorageTests.swift */,
 				13E50A6B23EEF071009A5495 /* FrameTests.swift */,
 				13E50A5323EEBE76009A5495 /* Info.plist */,
 			);
@@ -223,11 +217,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13E50A6423EEDC6C009A5495 /* StrikesStorage.swift in Sources */,
+				13E50A6423EEDC6C009A5495 /* DuplicationsStorage.swift in Sources */,
 				13E50A6823EEEE91009A5495 /* Frame.swift in Sources */,
 				13E50A5E23EEC021009A5495 /* Game.swift in Sources */,
 				136226A323F05AE40035C9C8 /* Duplication.swift in Sources */,
-				13E50A6023EED1C2009A5495 /* Strike.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,11 +228,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13E50A6623EEE05C009A5495 /* StrikesStorageTests.swift in Sources */,
+				13E50A6623EEE05C009A5495 /* DuplicationsStorageTests.swift in Sources */,
 				13E50A6C23EEF071009A5495 /* FrameTests.swift in Sources */,
 				13E50A5223EEBE76009A5495 /* BowlingGameKataTests.swift in Sources */,
 				136226A523F05B3C0035C9C8 /* DuplicationTests.swift in Sources */,
-				13E50A6223EED26A009A5495 /* StrikeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

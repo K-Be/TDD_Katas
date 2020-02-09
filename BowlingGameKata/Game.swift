@@ -15,14 +15,14 @@ public class Game {
 	
 	private(set) var scoreVal = 0
 	private(set) var rollIndex = 0
-	let strikes = StrikesStorage()
+	let strikes = DuplicationsStorage()
 	private(set) var extraRollsCount = 0
 	private(set) var frame = Frame(frameIndex: 0)
 	
 	public func roll(_ pinsCount:Int) {
 		if (frame.frameIndex < Game.maxCountFrames || extraRollsCount > 0)
 		{
-			let countActiveStrikes = strikes.countActiveStrikes(onRoll: rollIndex)
+			let countActiveStrikes = strikes.countActiveDuplications(onRoll: rollIndex)
 			scoreVal += (pinsCount + countActiveStrikes * pinsCount)
 			if pinsCount == Game.countPinsInFrame
 			{
@@ -31,7 +31,7 @@ public class Game {
 			
 			frame.knock(pinsCount)
 			if frame.frameCompleted() {
-				let shouldExtraRolls = isLastFrame() && (strikes.countActiveStrikes(onRoll: rollIndex + 1) != 0);
+				let shouldExtraRolls = isLastFrame() && (strikes.countActiveDuplications(onRoll: rollIndex + 1) != 0);
 				frame = Frame(frameIndex: frame.frameIndex + 1)
 				if (shouldExtraRolls)
 				{
