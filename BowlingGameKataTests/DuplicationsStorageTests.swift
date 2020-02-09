@@ -20,6 +20,13 @@ class DuplicationsStorageTests: XCTestCase {
 			XCTAssert(storage.countActiveDuplications(onRoll: 5) == 1)
     }
 	
+	func testFindActiveSpare() {
+		let storage = DuplicationsStorage()
+		storage.addSpare(withRoll: 3)
+		
+		XCTAssertEqual(storage.countActiveDuplications(onRoll: 4), 1)
+	}
+	
 	
 	func testNoActiveStrike() {
 		let storage = DuplicationsStorage()
@@ -28,6 +35,16 @@ class DuplicationsStorageTests: XCTestCase {
 		XCTAssert(storage.countActiveDuplications(onRoll: 3) == 0)
 		XCTAssert(storage.countActiveDuplications(onRoll: 6) == 0)
 	}
+	
+	
+	func testNoActiveSpares() {
+		let storage = DuplicationsStorage()
+		storage.addSpare(withRoll: 3)
+		
+		XCTAssert(storage.countActiveDuplications(onRoll: 3) == 0)
+		XCTAssert(storage.countActiveDuplications(onRoll: 5) == 0)
+	}
+	
 	
 	
 	func testMultiplyStrikes() {
@@ -40,7 +57,6 @@ class DuplicationsStorageTests: XCTestCase {
 		XCTAssert(storage.countActiveDuplications(onRoll: 2) == 1)
 		XCTAssert(storage.countActiveDuplications(onRoll: 3) == 2)
 		XCTAssert(storage.countActiveDuplications(onRoll: 4) == 1)
-		XCTAssert(storage.countActiveDuplications(onRoll: 5) == 0)
 		XCTAssert(storage.countActiveDuplications(onRoll: 6) == 1)
 		XCTAssert(storage.countActiveDuplications(onRoll: 8) == 0)
 	}

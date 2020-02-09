@@ -19,6 +19,12 @@ class DuplicationsStorage {
 	}
 	
 	
+	func addSpare(withRoll rollIndex: Int) {
+		let spare = Duplication(startRollIndex: rollIndex, countRolls: 1)
+		duplicationsList.append(spare)
+	}
+	
+	
 	func countActiveDuplications(onRoll rollIndex: Int) -> Int {
 		
 		let activeStrikes = duplicationsList.filter { (strike) -> Bool in
