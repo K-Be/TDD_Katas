@@ -187,6 +187,23 @@ class BowlingGameKataTests: XCTestCase {
 	}
 	
 	
+	func testSpareOnLastFrame() {
+		let game = createGame()
+		
+		for _ in 1...(2 * Game.maxCountFrames - 2) {
+			game.roll(0);
+		}
+		
+		//last frame
+		game.roll(1)
+		game.roll(Game.countPinsInFrame - 1)
+		let countInRoll = 1
+		game.roll(countInRoll)
+		
+		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll * 2)
+	}
+	
+	
 	func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
