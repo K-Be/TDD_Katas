@@ -19,7 +19,8 @@ public class Game {
 	private(set) var extraRollsCount = 0
 	private(set) var frame = Frame(frameIndex: 0)
 	
-	public func roll(_ pinsCount:Int) {
+	public func roll(_ pins:Int) {
+		let pinsCount = clamp(pins, min: 0, max: Game.countPinsInFrame - frame.knockedPinsCount)
 		if (frame.frameIndex < Game.maxCountFrames || extraRollsCount > 0)
 		{
 			if (extraRollsCount > 0)
