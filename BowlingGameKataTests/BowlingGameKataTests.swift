@@ -141,7 +141,35 @@ class BowlingGameKataTests: XCTestCase {
 	}
 	
 	
+	func testDetectLastFrame() {
+		let game = createGame()
+		
+		for _ in 1...(Game.maxCountFrames - 1) {
+			game.roll(Game.countPinsInFrame)
+		}
+		
+		XCTAssertTrue(game.isLastFrame());
+	}
 	
+	
+	func testDetectLastFrameInNormalGame() {
+		
+		let game = createGame()
+		for _ in 1...(2 * Game.maxCountFrames - 2) {
+			game.roll(0)
+		}
+		
+		XCTAssertTrue(game.isLastFrame())
+	}
+	
+	
+	func testNonLastFrame() {
+		let game = createGame()
+		
+		game.roll(4);
+		
+		XCTAssertFalse(game.isLastFrame());
+	}
 	
 	
 	func testPerformanceExample() {

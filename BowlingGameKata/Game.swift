@@ -13,10 +13,11 @@ public class Game {
 	public static let countPinsInFrame = Frame.maxCountPins
 	public static let maxCountFrames = 10
 	
-	var scoreVal = 0
-	var rollIndex = 0
+	private(set) var scoreVal = 0
+	private(set) var rollIndex = 0
 	let strikes = StrikesStorage()
-	var extraRolls = false
+	private(set) var extraRolls = false
+	private(set) var frame = Frame(frameIndex: 0)
 	
 	public func roll(_ pinsCount:Int) {
 		if (rollIndex < 20)
@@ -29,6 +30,11 @@ public class Game {
 				strikes.addStrike(withRoll: rollIndex)
 			}
 			
+			frame.knock(pinsCount)
+			if frame.frameCompleted() {
+				frame = Frame(frameIndex: frame.frameIndex + 1)
+			}
+			
 			rollIndex += 1;
 		}
 		
@@ -36,6 +42,11 @@ public class Game {
 	
 	public func score() -> Int {
 		return scoreVal;
+	}
+	
+	
+	func isLastFrame() -> Bool {
+		return frame.frameIndex == (Game.maxCountFrames - 1);
 	}
 }
 

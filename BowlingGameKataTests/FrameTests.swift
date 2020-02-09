@@ -71,7 +71,27 @@ class FrameTests: XCTestCase {
 		frame.knock(Frame.maxCountPins - 1)
 		
 		XCTAssertFalse(frame.frameCompleted())
-	}	
+	}
+	
+	
+	func testCompletedWithRolls() {
+		var frame = Frame(frameIndex: 10)
+		
+		frame.knock(1)
+		frame.knock(1)
+		
+		XCTAssertTrue(frame.frameCompleted())
+	}
+	
+	
+	func testCompleteWithEmptyKnocks() {
+		var frame = Frame(frameIndex: 10)
+		
+		frame.knock(0)
+		frame.knock(0)
+		
+		XCTAssertTrue(frame.frameCompleted())
+	}
 	
 
 	func testPerformanceExample() {
