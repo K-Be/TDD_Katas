@@ -172,6 +172,21 @@ class BowlingGameKataTests: XCTestCase {
 	}
 	
 	
+	func testStride() {
+		let game = createGame()
+		
+		let knockedOnFirstRoll = 2
+		game.roll(knockedOnFirstRoll)
+		game.roll(Game.countPinsInFrame - knockedOnFirstRoll)
+		//here we have stride
+		
+		game.roll(1)
+		game.roll(1)
+		
+		XCTAssertEqual(game.score(), Game.countPinsInFrame + 1 * 2 + 1);
+	}
+	
+	
 	func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
