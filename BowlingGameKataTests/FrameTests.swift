@@ -100,5 +100,45 @@ class FrameTests: XCTestCase {
 					// Put the code you want to measure the time of here.
 			}
 	}
+	
+	
+	func testStrike() {
+		var frame = Frame(frameIndex: 10)
+		
+		frame.knock(Frame.maxCountPins)
+		
+		XCTAssertEqual(frame.completionStatus(), Frame.CompletionStatus.Strike)
+	}
+	
+	
+	func testSpare() {
+		var frame = Frame(frameIndex: 10)
+		
+		frame.knock(1)
+		frame.knock(Frame.maxCountPins - 1)
+		
+		XCTAssertEqual(frame.completionStatus(), Frame.CompletionStatus.Spare)
+	}
+	
+	
+	func testGeneral() {
+		var frame = Frame(frameIndex: 10)
+		
+		frame.knock(1)
+		frame.knock(3)
+		
+		XCTAssertEqual(frame.completionStatus(), Frame.CompletionStatus.General)
+	}
+	
+	
+	func testNotCompleted() {
+		var frame = Frame(frameIndex: 10)
+		
+		XCTAssertEqual(frame.completionStatus(), Frame.CompletionStatus.NotCompleted)
+		
+		frame.knock(1)
+		
+		XCTAssertEqual(frame.completionStatus(), Frame.CompletionStatus.NotCompleted)
+	}
 
 }

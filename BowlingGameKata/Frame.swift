@@ -33,9 +33,38 @@ struct Frame {
 		rollsCount += 1
 	}
 	
+	enum CompletionStatus : Int {
+		case NotCompleted
+		case General
+		case Strike
+		case Spare
+	}
+	
+	func completionStatus() -> CompletionStatus {
+		var result : CompletionStatus = .NotCompleted
+		if (self.knockedPinsCount < Frame.maxCountPins){
+			if (rollsCount == Frame.maxRolls){
+				result = .General
+			}
+			else{
+				result = .NotCompleted
+			}
+		}
+		else {
+			if (rollsCount == 1){
+				result = .Strike
+			}
+			else{
+				result = .Spare
+			}
+		}
+		
+		return result
+	}
+	
 	
 	func frameCompleted() -> Bool {
-		return (self.knockedPinsCount == Frame.maxCountPins) || (self.rollsCount >= Frame.maxRolls)
+		return [CompletionStatus.General, CompletionStatus.Strike, CompletionStatus.Spare].contains(completionStatus())
 	}
 	
 }

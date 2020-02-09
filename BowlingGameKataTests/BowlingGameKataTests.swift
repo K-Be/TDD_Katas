@@ -172,13 +172,13 @@ class BowlingGameKataTests: XCTestCase {
 	}
 	
 	
-	func testStride() {
+	func testSpare() {
 		let game = createGame()
 		
 		let knockedOnFirstRoll = 2
 		game.roll(knockedOnFirstRoll)
 		game.roll(Game.countPinsInFrame - knockedOnFirstRoll)
-		//here we have stride
+		//here we have Spare
 		
 		game.roll(1)
 		game.roll(1)
