@@ -10,5 +10,12 @@ import Foundation
 
 
 func clamp<T:Comparable>(_ val:T, min:T, max:T) -> T {
+	guard val >= min else {
+		return min
+	}
+	guard val <= max else {
+		return max
+	}
+	
 	return val;
 }
