@@ -12,40 +12,54 @@ import XCTest
 
 class DuplicationTests: XCTestCase {
 
+	func enumerateActiveRolls(withBlock block : (Int)->Void) {
+		for numberActiveRolls in 1...2 {
+			block(numberActiveRolls)
+		}
+	}
+	
+	
 func testActive() {
 	let duplicationIndex = 3
-	let numberActiveRolls = 2
-	
-	let dup = Duplication(startRollIndex: duplicationIndex, countRolls: numberActiveRolls)
-	
-	for i in 1...numberActiveRolls {
-		XCTAssertTrue(dup.isActive(forRoll: duplicationIndex + i))
+	enumerateActiveRolls { (numberActiveRolls) in
+		let dup = Duplication(startRollIndex: duplicationIndex, countRolls: numberActiveRolls)
+		
+		for i in 1...numberActiveRolls {
+			XCTAssertTrue(dup.isActive(forRoll: duplicationIndex + i), "number active rolls = \(numberActiveRolls)")
+		}
 	}
 }
 
+	
 func testNotActive() {
 	let duplicationIndex = 3
-	let numberActiveRolls = 2
 	
-	let dup = Duplication(startRollIndex: duplicationIndex, countRolls: numberActiveRolls)
-	for i in (numberActiveRolls + 1)...(numberActiveRolls + 1)
-	{
-		XCTAssertTrue(!dup.isActive(forRoll: duplicationIndex + i))
+	enumerateActiveRolls { (numberActiveRolls) in
+		let dup = Duplication(startRollIndex: duplicationIndex, countRolls: numberActiveRolls)
+		for i in (numberActiveRolls + 1)...(numberActiveRolls + 1)
+		{
+			XCTAssertTrue(!dup.isActive(forRoll: duplicationIndex + i), "number active rolls = \(numberActiveRolls)")
+		}
 	}
 }
 
 
+	
 func testNotActiveInPast() {
 	let dupIndex = 3
-	let dup = Duplication(startRollIndex: dupIndex, countRolls: 1)
-	XCTAssertTrue(!dup.isActive(forRoll: 2))
+	enumerateActiveRolls { (numberActiveRolls) in
+		let dup = Duplication(startRollIndex: dupIndex, countRolls: numberActiveRolls)
+		XCTAssertTrue(!dup.isActive(forRoll: 2), "number active rolls = \(numberActiveRolls)")
+	}
 }
 
 
 func testNotActiveInCurrentRoll() {
 	let dupIndex = 3
-	let dup = Duplication(startRollIndex: dupIndex, countRolls: 1)
-	XCTAssert(!dup.isActive(forRoll: dupIndex))
+	enumerateActiveRolls { (numberActiveRolls) in
+		let dup = Duplication(startRollIndex: dupIndex, countRolls: numberActiveRolls)
+		XCTAssert(!dup.isActive(forRoll: dupIndex))
+	}
 }
 
 
