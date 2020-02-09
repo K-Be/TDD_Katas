@@ -137,7 +137,7 @@ class BowlingGameKataTests: XCTestCase {
 		game.roll(countInRoll)
 		game.roll(countInRoll)
 		
-		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll * 2 + countInRoll * 2)
+		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll  + countInRoll)
 	}
 	
 	
@@ -158,7 +158,7 @@ class BowlingGameKataTests: XCTestCase {
 		//shouldn't calculate
 		game.roll(countInRoll)
 		
-		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll * 2 + countInRoll * 2)
+		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll + countInRoll)
 	}
 	
 	
@@ -221,7 +221,7 @@ class BowlingGameKataTests: XCTestCase {
 		let countInRoll = 1
 		game.roll(countInRoll)
 		
-		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll * 2)
+		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll)
 	}
 	
 	
@@ -242,7 +242,7 @@ class BowlingGameKataTests: XCTestCase {
 		game.roll(countInRoll)
 		
 		
-		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll * 2)
+		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll)
 	}
 	
 	
@@ -263,6 +263,43 @@ class BowlingGameKataTests: XCTestCase {
 		game.roll(Game.countPinsInFrame)
 		
 		XCTAssertEqual(game.score(), Game.countPinsInFrame)
+	}
+	
+	
+	func testAllFramesStrikes() {
+		
+		let game = Game()
+		
+		for _ in 1...Game.maxCountFrames {
+			game.roll(Game.countPinsInFrame)
+		}
+		game.roll(Game.countPinsInFrame)
+		game.roll(Game.countPinsInFrame)
+		
+		XCTAssertEqual(game.score(), Game.countPinsInFrame * Game.maxCountFrames * 3)
+	}
+	
+	
+	func testExtraRollsGameStrike() {
+		let game = Game()
+		
+		for _ in 1...Game.maxCountFrames {
+			game.roll(Game.countPinsInFrame)
+		}
+		
+		XCTAssertTrue(game.isExtraRollsGame())
+	}
+	
+	
+	func testExtraRollsGameSpare() {
+		let game = Game()
+		
+		for _ in 1...Game.maxCountFrames {
+			game.roll(0)
+			game.roll(Game.countPinsInFrame)
+		}
+		
+		XCTAssertTrue(game.isExtraRollsGame())
 	}
 	
 	

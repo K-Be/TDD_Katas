@@ -28,8 +28,13 @@ public class Game {
 				extraRollsCount -= 1
 			}
 			
+			
+			if (!self.isExtraRollsGame())
+			{
+				scoreVal += pinsCount
+			}
 			let countActiveStrikes = strikes.countActiveDuplications(onRoll: rollIndex)
-			scoreVal += (pinsCount + countActiveStrikes * pinsCount)
+			scoreVal += countActiveStrikes * pinsCount
 			
 			frame.knock(pinsCount)
 			switch frame.completionStatus() {
@@ -38,9 +43,15 @@ public class Game {
 			case .NotCompleted:
 				break;
 			case .Spare:
-				strikes.addSpare(withRoll: rollIndex)
+				if (!self.isExtraRollsGame())
+				{
+					strikes.addSpare(withRoll: rollIndex)
+				}
 			case .Strike:
-				strikes.addStrike(withRoll: rollIndex)
+				if (!self.isExtraRollsGame())
+				{
+					strikes.addStrike(withRoll: rollIndex)
+				}
 			}
 			if frame.frameCompleted() {
 				let shouldExtraRolls = isLastFrame() && (strikes.countActiveDuplications(onRoll: rollIndex + 1) != 0);
@@ -70,6 +81,10 @@ public class Game {
 	
 	func isLastFrame() -> Bool {
 		return frame.frameIndex == (Game.maxCountFrames - 1);
+	}
+	
+	func isExtraRollsGame() -> Bool {
+		return frame.frameIndex >= Game.maxCountFrames
 	}
 }
 
