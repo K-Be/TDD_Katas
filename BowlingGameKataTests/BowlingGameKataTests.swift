@@ -303,6 +303,77 @@ class BowlingGameKataTests: XCTestCase {
 	}
 	
 	
+	func testGame1() {
+		
+		let game = Game()
+		
+		//frame1
+		game.roll(4)
+		XCTAssertEqual(game.score(), 4)
+		game.roll(Game.countPinsInFrame - 4)
+		var sum = Game.countPinsInFrame
+		XCTAssertEqual(game.score(), sum)
+		
+		//frame 2 Spare - 1
+		game.roll(Game.countPinsInFrame)
+		sum += Game.countPinsInFrame + Game.countPinsInFrame
+		XCTAssertEqual(game.score(), sum)
+		
+		//frame 3 Spare - 0 Strike - 1
+		game.roll(Game.countPinsInFrame)
+		sum += Game.countPinsInFrame + Game.countPinsInFrame
+		XCTAssertEqual(game.score(), sum)
+		
+		//frame 4 Spare - 0 Strike - 2
+		game.roll(0)
+		XCTAssertEqual(game.score(), sum)
+		//Strike - 1
+		game.roll(5)
+		sum += 5 + 5
+		XCTAssertEqual(game.score(), sum)
+		
+		//frame 5
+		game.roll(1)
+		game.roll(4)
+		sum  += 1 + 4
+		XCTAssertEqual(game.score(), sum)
+		
+		//frame 6
+		game.roll(Game.countPinsInFrame - 2)
+		game.roll(2)
+		sum += Game.countPinsInFrame - 2 + 2
+		XCTAssertEqual(game.score(), sum)
+		
+		//frame 7 Spare
+		game.roll(Game.countPinsInFrame)
+		sum += Game.countPinsInFrame + Game.countPinsInFrame
+		XCTAssertEqual(game.score(), sum)
+		
+		//frame 8 Strike - 1
+		game.roll(0)
+		game.roll(2)
+		sum += 0 + 0 + 2 + 2
+		XCTAssertEqual(game.score(), sum)
+		
+		//frame 9
+		game.roll(1)
+		game.roll(2)
+		sum += 1 + 2
+		XCTAssertEqual(game.score(), sum)
+		
+		//frame 10
+		game.roll(Game.countPinsInFrame)
+		sum += Game.countPinsInFrame
+		XCTAssertEqual(game.score(), sum)
+		
+		//Ext
+		game.roll(3)
+		game.roll(0)
+		sum += 3 + 0
+		XCTAssertEqual(game.score(), sum)
+	}
+	
+	
 	func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
