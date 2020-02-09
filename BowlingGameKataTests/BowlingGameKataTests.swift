@@ -141,6 +141,28 @@ class BowlingGameKataTests: XCTestCase {
 	}
 	
 	
+	func testNotSumAfterEndOfGameAfterOfLastStrike() {
+		
+		let game = createGame()
+		
+		for _ in 1...(2 * Game.maxCountFrames - 2) {
+			game.roll(0);
+		}
+		
+		//last frame
+		game.roll(Game.countPinsInFrame)
+		let countInRoll = 1
+		game.roll(countInRoll)
+		game.roll(countInRoll)
+		
+		//shouldn't calculate
+		game.roll(countInRoll)
+		
+		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll * 2 + countInRoll * 2)
+	}
+	
+	
+	
 	func testDetectLastFrame() {
 		let game = createGame()
 		
