@@ -162,7 +162,6 @@ class BowlingGameKataTests: XCTestCase {
 	}
 	
 	
-	
 	func testDetectLastFrame() {
 		let game = createGame()
 		
@@ -244,6 +243,26 @@ class BowlingGameKataTests: XCTestCase {
 		
 		
 		XCTAssertEqual(game.score(), Game.countPinsInFrame + countInRoll * 2)
+	}
+	
+	
+	func testGreaterThenInOneFrame() {
+		let game = Game()
+		
+		let count = 5
+		game.roll(count)
+		game.roll(Game.countPinsInFrame)
+		
+		XCTAssertEqual(game.score(), Game.countPinsInFrame)
+	}
+	
+	
+	func testGreatethemMaxInFrameWithStrike() {
+		let game = Game()
+		
+		game.roll(Game.countPinsInFrame)
+		
+		XCTAssertEqual(game.score(), Game.countPinsInFrame)
 	}
 	
 	
