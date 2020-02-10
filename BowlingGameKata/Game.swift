@@ -15,7 +15,7 @@ public class Game {
 	
 	private(set) var scoreVal = 0
 	private(set) var rollIndex = 0
-	let strikes = DuplicationsStorage()
+	let duplications = DuplicationsStorage()
 	private(set) var extraRollsCount = 0
 	private(set) var frame = Frame(frameIndex: 0)
 	
@@ -28,44 +28,17 @@ public class Game {
 				extraRollsCount -= 1
 			}
 			
-			
-			if (!self.isExtraRollsGame())
-			{
-				scoreVal += pinsCount
-			}
-			let countActiveStrikes = strikes.countActiveDuplications(onRoll: rollIndex)
-			scoreVal += countActiveStrikes * pinsCount
+			insreaseScore(withPinsCount:pinsCount)
 			
 			frame.knock(pinsCount)
-			switch frame.completionStatus() {
-			case .General:
-				break;
-			case .NotCompleted:
-				break;
-			case .Spare:
-				if (!self.isExtraRollsGame())
-				{
-					strikes.addSpare(withRoll: rollIndex)
-				}
-			case .Strike:
-				if (!self.isExtraRollsGame())
-				{
-					strikes.addStrike(withRoll: rollIndex)
-				}
-			}
+			tryAddDuplicationsForCurrentFrame()
+			
 			if frame.frameCompleted() {
-				let shouldExtraRolls = isLastFrame() && (strikes.countActiveDuplications(onRoll: rollIndex + 1) != 0);
+				let shouldExtraRolls = isLastFrame() && (duplications.countActiveDuplications(onRoll: rollIndex + 1) != 0);
 				frame = Frame(frameIndex: frame.frameIndex + 1)
 				if (shouldExtraRolls)
 				{
-					if (strikes.countActiveDuplications(onRoll: rollIndex + 2) != 0)
-					{
-						extraRollsCount = 2
-					}
-					else
-					{
-						extraRollsCount = 1
-					}
+					addExtraRolls()
 				}
 			}
 			
@@ -73,6 +46,7 @@ public class Game {
 		}
 		
 	}
+	
 	
 	public func score() -> Int {
 		return scoreVal;
@@ -86,5 +60,48 @@ public class Game {
 	func isExtraRollsGame() -> Bool {
 		return frame.frameIndex >= Game.maxCountFrames
 	}
+	
+	
+	fileprivate func tryAddDuplicationsForCurrentFrame() {
+		switch frame.completionStatus() {
+		case .General:
+			break;
+		case .NotCompleted:
+			break;
+		case .Spare:
+			if (!self.isExtraRollsGame())
+			{
+				duplications.addSpare(withRoll: rollIndex)
+			}
+		case .Strike:
+			if (!self.isExtraRollsGame())
+			{
+				duplications.addStrike(withRoll: rollIndex)
+			}
+		}
+	}
+	
+	
+	fileprivate func addExtraRolls() {
+		if (duplications.countActiveDuplications(onRoll: rollIndex + 2) != 0)
+		{
+			extraRollsCount = 2
+		}
+		else
+		{
+			extraRollsCount = 1
+		}
+	}
+	
+	
+	fileprivate func insreaseScore(withPinsCount pinsCount: Int) {
+		if (!self.isExtraRollsGame())
+		{
+			scoreVal += pinsCount
+		}
+		let countActiveDuplications = duplications.countActiveDuplications(onRoll: rollIndex)
+		scoreVal += countActiveDuplications * pinsCount
+	}
+	
 }
 
