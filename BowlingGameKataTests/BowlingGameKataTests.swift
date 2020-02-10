@@ -303,6 +303,25 @@ class BowlingGameKataTests: XCTestCase {
 	}
 	
 	
+	func testSparesAllGame() {
+		
+		let game = Game()
+		
+		for i in 0..<Game.maxCountFrames {
+			game.roll(1)
+			game.roll(Game.maxCountFrames - 1)
+			XCTAssertEqual(game.score(), (i + 1) * Game.maxCountFrames + i)
+		}
+		let scoreBeforeLast = game.score()
+		game.roll(1)
+		XCTAssertEqual(game.score(), scoreBeforeLast + 1)
+		
+		//after end
+		game.roll(1)
+		XCTAssertEqual(game.score(), scoreBeforeLast+1);
+	}
+	 
+	
 	func testGame1() {
 		
 		let game = Game()
