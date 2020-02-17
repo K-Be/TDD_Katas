@@ -9,16 +9,56 @@
 import XCTest
 @testable import StringCalculator
 
+
+
 class StringCalculatorTests: XCTestCase {
+	
+	var calc = StringCalculator();
+	
+	override func setUp() {
+		super.setUp()
+	}
+	
+	
+	func testInit() {
+		let _ = StringCalculator()
+	}
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
+	
+	func testEmptyString() {
+		XCTAssertEqual(calc.add(""), 0)
+	}
+	
+	
+	func testOneNumber() {
+		for i in 0...1000 {
+			XCTAssertEqual(calc.add("\(i)"), i)
+		}
+	}
+	
+	
+	func testTwoNumbers() {
+		for num1 in 0...100 {
+			for num2 in 0...100 {
+				let sum = num1 + num2
+				let string = "\(num1),\(num2)"
+				XCTAssertEqual(calc.add(string), sum)
+			}
+		}
+	}
+	
+	
+	func testWrongStrig() {
+		XCTAssertEqual(calc.add("dfidsof"), 0)
+	}
+	
+	
+	func testManyArguments() {
+		XCTAssertEqual(calc.add("4,3,6,eefefrefre"), 7)
+	}
+	
+	
+	
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

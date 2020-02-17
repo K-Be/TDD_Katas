@@ -10,6 +10,7 @@
 		1369F59A23FAC733000F7695 /* StringCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1369F59023FAC733000F7695 /* StringCalculator.framework */; };
 		1369F59F23FAC733000F7695 /* StringCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369F59E23FAC733000F7695 /* StringCalculatorTests.swift */; };
 		1369F5A123FAC733000F7695 /* StringCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1369F59323FAC733000F7695 /* StringCalculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1369F5AB23FAC79E000F7695 /* StringCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369F5AA23FAC79E000F7695 /* StringCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		1369F59923FAC733000F7695 /* StringCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StringCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1369F59E23FAC733000F7695 /* StringCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculatorTests.swift; sourceTree = "<group>"; };
 		1369F5A023FAC733000F7695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1369F5AA23FAC79E000F7695 /* StringCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				1369F59323FAC733000F7695 /* StringCalculator.h */,
+				1369F5AA23FAC79E000F7695 /* StringCalculator.swift */,
 				1369F59423FAC733000F7695 /* Info.plist */,
 			);
 			path = StringCalculator;
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					1369F58F23FAC733000F7695 = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 					1369F59823FAC733000F7695 = {
 						CreatedOnToolsVersion = 11.2.1;
@@ -195,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1369F5AB23FAC79E000F7695 /* StringCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +345,7 @@
 		1369F5A523FAC733000F7695 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 25WDLLAK34;
@@ -356,6 +362,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.home.rav.StringCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +371,7 @@
 		1369F5A623FAC733000F7695 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 25WDLLAK34;
@@ -388,6 +396,7 @@
 		1369F5A823FAC733000F7695 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25WDLLAK34;
 				INFOPLIST_FILE = StringCalculatorTests/Info.plist;
@@ -406,6 +415,7 @@
 		1369F5A923FAC733000F7695 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 25WDLLAK34;
 				INFOPLIST_FILE = StringCalculatorTests/Info.plist;
