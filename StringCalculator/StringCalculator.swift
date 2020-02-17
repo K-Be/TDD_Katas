@@ -17,16 +17,10 @@ public class StringCalculator {
 		}
 		
 		let subStrings = numbers.components(separatedBy: CharacterSet(charactersIn: ",") )
-		if (subStrings.count == 0) {
-			return 0
+		let sum : Int =  subStrings.reduce(0) { (pRes, strVal) -> Int in
+			return pRes + (Int(strVal) ?? 0)
 		}
-		else if (subStrings.count == 1){
-			return  Int(subStrings.first!) ?? 0
-		}
-		
-		let num1 = Int(subStrings.first!) ?? 0
-		let num2 = Int(subStrings[1]) ?? 0
-		return num1 + num2
+		return sum
 	}
 }
 

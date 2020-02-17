@@ -54,7 +54,37 @@ class StringCalculatorTests: XCTestCase {
 	
 	
 	func testManyArguments() {
-		XCTAssertEqual(calc.add("4,3,6,eefefrefre"), 7)
+		XCTAssertEqual(calc.add("4,3,6,eefefrefre"), 13)
+	}
+	
+	
+	func testSumThreeNumbers() {
+		XCTAssertEqual(calc.add("1,2,3"), 6)
+	}
+	
+	
+	
+	func testSumManyNumbers() {
+		
+		for countArgs in 1...10 {
+			let startValue = countArgs + 1
+			let seq = Array(startValue...(startValue + countArgs))
+			let string = seq.reduce("") { (str:String, val:Int) -> String in
+				var res = str;
+				if (!str.isEmpty){
+					res.append(",")
+				}
+				res.append("\(val)")
+				return res
+			}
+			
+			let sum = seq.reduce(0) { (pSum, val) -> Int in
+				return pSum + val
+			}
+			
+			XCTAssertEqual(sum, calc.add(string))
+		}
+		
 	}
 	
 	
