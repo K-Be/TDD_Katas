@@ -88,6 +88,19 @@ class StringCalculatorTests: XCTestCase {
 	}
 	
 	
+	func testNewLineOrComma() {
+		let str = "1\n2"
+		XCTAssertEqual(calc.add(str), 3)
+	}
+	
+	
+	func testNewLineAndCommas() {
+		let string = "1,2\n3"
+		XCTAssertEqual(calc.add(string), 6)
+	}
+
+	
+	
 	
     func testExample() {
         // This is an example of a functional test case.

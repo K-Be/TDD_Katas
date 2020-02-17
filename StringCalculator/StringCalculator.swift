@@ -16,7 +16,7 @@ public class StringCalculator {
 			return 0
 		}
 		
-		let subStrings = numbers.components(separatedBy: CharacterSet(charactersIn: ",") )
+		let subStrings = numbers.components(separatedBy: CharacterSet(charactersIn: ",\n") )
 		let sum : Int =  subStrings.reduce(0) { (pRes, strVal) -> Int in
 			return pRes + (Int(strVal) ?? 0)
 		}
