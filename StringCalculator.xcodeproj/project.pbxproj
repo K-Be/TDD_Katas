@@ -11,6 +11,8 @@
 		1369F59F23FAC733000F7695 /* StringCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369F59E23FAC733000F7695 /* StringCalculatorTests.swift */; };
 		1369F5A123FAC733000F7695 /* StringCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 1369F59323FAC733000F7695 /* StringCalculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1369F5AB23FAC79E000F7695 /* StringCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369F5AA23FAC79E000F7695 /* StringCalculator.swift */; };
+		1369F5AD23FAD6B0000F7695 /* DelimeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369F5AC23FAD6B0000F7695 /* DelimeterTests.swift */; };
+		1369F5AF23FAD6CD000F7695 /* Delimeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369F5AE23FAD6CD000F7695 /* Delimeter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,8 @@
 		1369F59E23FAC733000F7695 /* StringCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculatorTests.swift; sourceTree = "<group>"; };
 		1369F5A023FAC733000F7695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1369F5AA23FAC79E000F7695 /* StringCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculator.swift; sourceTree = "<group>"; };
+		1369F5AC23FAD6B0000F7695 /* DelimeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelimeterTests.swift; sourceTree = "<group>"; };
+		1369F5AE23FAD6CD000F7695 /* Delimeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delimeter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 			children = (
 				1369F59323FAC733000F7695 /* StringCalculator.h */,
 				1369F5AA23FAC79E000F7695 /* StringCalculator.swift */,
+				1369F5AE23FAD6CD000F7695 /* Delimeter.swift */,
 				1369F59423FAC733000F7695 /* Info.plist */,
 			);
 			path = StringCalculator;
@@ -85,6 +90,7 @@
 			children = (
 				1369F59E23FAC733000F7695 /* StringCalculatorTests.swift */,
 				1369F5A023FAC733000F7695 /* Info.plist */,
+				1369F5AC23FAD6B0000F7695 /* DelimeterTests.swift */,
 			);
 			path = StringCalculatorTests;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1369F5AB23FAC79E000F7695 /* StringCalculator.swift in Sources */,
+				1369F5AF23FAD6CD000F7695 /* Delimeter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1369F59F23FAC733000F7695 /* StringCalculatorTests.swift in Sources */,
+				1369F5AD23FAD6B0000F7695 /* DelimeterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

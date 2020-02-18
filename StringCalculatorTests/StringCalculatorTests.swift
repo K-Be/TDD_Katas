@@ -100,8 +100,12 @@ class StringCalculatorTests: XCTestCase {
 	}
 
 	
+	func testCustomDelimeter() {
+		let string = "\\\\;\n1;2"
+		XCTAssertEqual(calc.add(string), 3)
+	}
 	
-	
+
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
