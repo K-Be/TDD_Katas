@@ -9,7 +9,7 @@
 import Foundation
 
 //https://osherove.com/tdd-kata-1/
-//on task 6
+//
 public class StringCalculator {
 	
 	let maxNum : Int
