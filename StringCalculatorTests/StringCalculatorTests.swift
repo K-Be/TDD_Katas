@@ -105,6 +105,13 @@ class StringCalculatorTests: XCTestCase {
 		XCTAssertEqual(try! calc.add(string), 3)
 	}
 	
+	
+	func testIgnoreBiggerNumbers() {
+		let calc = StringCalculator(maxNum: 1000)
+		let string = "2,1001";
+		XCTAssertEqual(try! calc.add(string), 2)
+	}
+	
 
     func testExample() {
         // This is an example of a functional test case.

@@ -9,8 +9,13 @@
 import Foundation
 
 //https://osherove.com/tdd-kata-1/
-//on task 5
+//on task 6
 public class StringCalculator {
+	
+	let maxNum : Int
+	public init (maxNum: Int = Int.max) {
+		self.maxNum = maxNum;
+	}
 	
 	public enum Exception : Error {
 		case negativeNumbers(numbers: [Int]);
@@ -50,6 +55,9 @@ public class StringCalculator {
 		let sum : Int =  numPairs.reduce(0) { (pRes, pair) -> Int in
 			let (_, val) = pair
 			guard let nonNilVal = val else {
+				return pRes
+			}
+			guard nonNilVal <= self.maxNum else {
 				return pRes
 			}
 			
