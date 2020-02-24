@@ -66,13 +66,5 @@ public class StringCalculator {
 		return sum
 	}
 	
-	
-	func delimeter(forString str: String) -> String? {
-		return nil
-
-		
-	}
-	
-	
 }
 
