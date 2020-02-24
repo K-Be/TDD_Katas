@@ -13,6 +13,9 @@
 		1369F5AB23FAC79E000F7695 /* StringCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369F5AA23FAC79E000F7695 /* StringCalculator.swift */; };
 		1369F5AD23FAD6B0000F7695 /* DelimeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369F5AC23FAD6B0000F7695 /* DelimeterTests.swift */; };
 		1369F5AF23FAD6CD000F7695 /* Delimeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1369F5AE23FAD6CD000F7695 /* Delimeter.swift */; };
+		13719FF02403883E0022FED2 /* StringCalculatorNegativeNumersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13719FEF2403883E0022FED2 /* StringCalculatorNegativeNumersTests.swift */; };
+		13719FF224038CBA0022FED2 /* NumbersParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13719FF124038CBA0022FED2 /* NumbersParser.swift */; };
+		13719FF424038EA20022FED2 /* NumbersParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13719FF324038EA20022FED2 /* NumbersParserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,9 @@
 		1369F5AA23FAC79E000F7695 /* StringCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculator.swift; sourceTree = "<group>"; };
 		1369F5AC23FAD6B0000F7695 /* DelimeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelimeterTests.swift; sourceTree = "<group>"; };
 		1369F5AE23FAD6CD000F7695 /* Delimeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delimeter.swift; sourceTree = "<group>"; };
+		13719FEF2403883E0022FED2 /* StringCalculatorNegativeNumersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCalculatorNegativeNumersTests.swift; sourceTree = "<group>"; };
+		13719FF124038CBA0022FED2 /* NumbersParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersParser.swift; sourceTree = "<group>"; };
+		13719FF324038EA20022FED2 /* NumbersParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersParserTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 				1369F59323FAC733000F7695 /* StringCalculator.h */,
 				1369F5AA23FAC79E000F7695 /* StringCalculator.swift */,
 				1369F5AE23FAD6CD000F7695 /* Delimeter.swift */,
+				13719FF124038CBA0022FED2 /* NumbersParser.swift */,
 				1369F59423FAC733000F7695 /* Info.plist */,
 			);
 			path = StringCalculator;
@@ -89,8 +96,10 @@
 			isa = PBXGroup;
 			children = (
 				1369F59E23FAC733000F7695 /* StringCalculatorTests.swift */,
+				13719FEF2403883E0022FED2 /* StringCalculatorNegativeNumersTests.swift */,
 				1369F5A023FAC733000F7695 /* Info.plist */,
 				1369F5AC23FAD6B0000F7695 /* DelimeterTests.swift */,
+				13719FF324038EA20022FED2 /* NumbersParserTests.swift */,
 			);
 			path = StringCalculatorTests;
 			sourceTree = "<group>";
@@ -206,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1369F5AB23FAC79E000F7695 /* StringCalculator.swift in Sources */,
+				13719FF224038CBA0022FED2 /* NumbersParser.swift in Sources */,
 				1369F5AF23FAD6CD000F7695 /* Delimeter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +226,8 @@
 			files = (
 				1369F59F23FAC733000F7695 /* StringCalculatorTests.swift in Sources */,
 				1369F5AD23FAD6B0000F7695 /* DelimeterTests.swift in Sources */,
+				13719FF02403883E0022FED2 /* StringCalculatorNegativeNumersTests.swift in Sources */,
+				13719FF424038EA20022FED2 /* NumbersParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

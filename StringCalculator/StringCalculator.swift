@@ -9,25 +9,51 @@
 import Foundation
 
 //https://osherove.com/tdd-kata-1/
-//on task 4
+//on task 5
 public class StringCalculator {
 	
-	public func add(_ numbers: String) -> Int {
+	public enum Exception : Error {
+		case negativeNumbers(numbers: [Int]);
+	}
+		
+	public func add(_ numbers: String) throws -> Int {
 		guard !numbers.isEmpty else {
 			return 0
 		}
-		
-		
-		var subStrings = Array<String>()
+		var numPairs = Array<NumbersParser.NumPair>()
 		if let delimeter = Delimeter(withString:numbers) {
 			let substringView = numbers[delimeter.delimeterDescriptionRange.upperBound...];
-			subStrings = substringView.components(separatedBy: delimeter.toString);
+			let parser = NumbersParser(withString: String(substringView))
+			numPairs = parser.parceNumbers(withDelimeter: delimeter.toString)
 		}
 		else {
-			subStrings = numbers.components(separatedBy: CharacterSet(charactersIn: ",\n") )
+			let parser = NumbersParser(withString: numbers);
+			numPairs = parser.parceNumbers(withDelimeter: CharacterSet(charactersIn: ",\n"))
 		}
-		let sum : Int =  subStrings.reduce(0) { (pRes, strVal) -> Int in
-			return pRes + (Int(strVal) ?? 0)
+		
+		let negativeNumbres = numPairs.filter { (pair) -> Bool in
+			let (_, val) = pair;
+			guard let nonNilVal = val else {
+				return false
+			}
+			
+			return nonNilVal < 0
+		}
+		
+		guard negativeNumbres.isEmpty else {
+			throw Exception.negativeNumbers(numbers: negativeNumbres.compactMap({ (pair) -> Int? in
+				let (_, val) = pair
+				return val;
+			}))
+		}
+		
+		let sum : Int =  numPairs.reduce(0) { (pRes, pair) -> Int in
+			let (_, val) = pair
+			guard let nonNilVal = val else {
+				return pRes
+			}
+			
+			return pRes + nonNilVal
 		}
 		return sum
 	}

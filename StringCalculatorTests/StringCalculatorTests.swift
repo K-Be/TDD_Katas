@@ -26,13 +26,13 @@ class StringCalculatorTests: XCTestCase {
 
 	
 	func testEmptyString() {
-		XCTAssertEqual(calc.add(""), 0)
+		XCTAssertEqual(try! calc.add(""), 0)
 	}
 	
 	
 	func testOneNumber() {
 		for i in 0...1000 {
-			XCTAssertEqual(calc.add("\(i)"), i)
+			XCTAssertEqual(try! calc.add("\(i)"), i)
 		}
 	}
 	
@@ -42,24 +42,24 @@ class StringCalculatorTests: XCTestCase {
 			for num2 in 0...100 {
 				let sum = num1 + num2
 				let string = "\(num1),\(num2)"
-				XCTAssertEqual(calc.add(string), sum)
+				XCTAssertEqual(try! calc.add(string), sum)
 			}
 		}
 	}
 	
 	
 	func testWrongStrig() {
-		XCTAssertEqual(calc.add("dfidsof"), 0)
+		XCTAssertEqual(try! calc.add("dfidsof"), 0)
 	}
 	
 	
 	func testManyArguments() {
-		XCTAssertEqual(calc.add("4,3,6,eefefrefre"), 13)
+		XCTAssertEqual(try! calc.add("4,3,6,eefefrefre"), 13)
 	}
 	
 	
 	func testSumThreeNumbers() {
-		XCTAssertEqual(calc.add("1,2,3"), 6)
+		XCTAssertEqual(try! calc.add("1,2,3"), 6)
 	}
 	
 	
@@ -82,7 +82,7 @@ class StringCalculatorTests: XCTestCase {
 				return pSum + val
 			}
 			
-			XCTAssertEqual(sum, calc.add(string))
+			XCTAssertEqual(sum, try! calc.add(string))
 		}
 		
 	}
@@ -90,19 +90,19 @@ class StringCalculatorTests: XCTestCase {
 	
 	func testNewLineOrComma() {
 		let str = "1\n2"
-		XCTAssertEqual(calc.add(str), 3)
+		XCTAssertEqual(try! calc.add(str), 3)
 	}
 	
 	
 	func testNewLineAndCommas() {
 		let string = "1,2\n3"
-		XCTAssertEqual(calc.add(string), 6)
+		XCTAssertEqual(try! calc.add(string), 6)
 	}
 
 	
 	func testCustomDelimeter() {
 		let string = "\\\\;\n1;2"
-		XCTAssertEqual(calc.add(string), 3)
+		XCTAssertEqual(try! calc.add(string), 3)
 	}
 	
 
