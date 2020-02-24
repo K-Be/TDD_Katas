@@ -42,7 +42,7 @@ var calc = StringCalculator();
 	
 	
 	func testWithCustonDelimeter() {
-		let string = "\\\\DELIMETER\n1DELIMETER2DELIMETER-4"
+		let string = "//DELIMETER\n1DELIMETER2DELIMETER-4"
 		var inCatch = false
 		do {
 			let _ = try calc.add(string)
@@ -61,13 +61,6 @@ var calc = StringCalculator();
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }

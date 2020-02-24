@@ -101,7 +101,7 @@ class StringCalculatorTests: XCTestCase {
 
 	
 	func testCustomDelimeter() {
-		let string = "\\\\;\n1;2"
+		let string = "//;\n1;2"
 		XCTAssertEqual(try! calc.add(string), 3)
 	}
 	
@@ -112,17 +112,16 @@ class StringCalculatorTests: XCTestCase {
 		XCTAssertEqual(try! calc.add(string), 2)
 	}
 	
+	
+	func testLongDelimeter() {
+		let string = "//[DELIMETER]\n1DELIMETER2"
+		XCTAssertEqual(try! calc.add(string), 3)
+	}
+	
 
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }

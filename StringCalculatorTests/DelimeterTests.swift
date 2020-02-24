@@ -13,7 +13,7 @@ import XCTest
 class DelimeterTests: XCTestCase {
 
     func testValudDelimeter() {
-			let str = "\\\\DELIM\n"
+			let str = "//DELIM\n"
 			let delimeter = Delimeter(withString: str)
 			XCTAssertNotNil(delimeter);
 			XCTAssertEqual(delimeter!.toString, "DELIM")
@@ -21,7 +21,7 @@ class DelimeterTests: XCTestCase {
     }
 	
 	func testOneSimbolDelimeter() {
-		let str = "\\\\;\n1;2"
+		let str = "//;\n1;2"
 		let delimeter = Delimeter(withString:str)
 		XCTAssertNotNil(delimeter);
 		XCTAssertEqual(delimeter!.toString, ";")
@@ -37,17 +37,17 @@ class DelimeterTests: XCTestCase {
 	
 	
 	func testNotVali() {
-		let str = "\\\\sdfsdgf,5,6,7"
+		let str = "//sdfsdgf,5,6,7"
 		let delimeter = Delimeter(withString: str)
 		XCTAssertNil(delimeter)
 	}
 	
 	
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+	func testLongDelimeter() {
+		let str = "//[DELIMETER]\n"
+		let delimeter = Delimeter(withString: str)
+		XCTAssertNotNil(delimeter)
+		XCTAssertEqual(delimeter!.toString, "DELIMETER")
+	}
 
 }

@@ -10,20 +10,39 @@ import Foundation
 
 class Delimeter {
 	
-	private let delimeterStart = "\\\\"
-	private let delimeterEnd = "\n"
+	private typealias DelimeterBounds = (begin: String, end: String)
+	
+	private let short = DelimeterBounds(begin:"//", end:"\n")
+	private let long = DelimeterBounds(begin:"//[", end:"]\n");
+	
+	private let boundsVariants : Array<DelimeterBounds>
 	
 	init?(withString str: String) {
-		guard let rangeOfDelimeterStart =  str.range(of: delimeterStart) else {
-			return nil
+		
+		boundsVariants = [long, short]
+		
+		let boundN = boundsVariants.first { (boundVariant) -> Bool in
+			let (begin, end) = boundVariant
+			
+			guard let rangeOfDelimeterStart =  str.range(of: begin) else {
+				return false
+			}
+			guard let rangeOfDelimeterEnd = str.range(of:end) else {
+				return false
+			}
+			
+			guard rangeOfDelimeterEnd.lowerBound > rangeOfDelimeterStart.upperBound else {
+				return false
+			}
+			
+			return true
 		}
-		guard let rangeOfDelimeterEnd = str.range(of: delimeterEnd) else {
+		guard let bound = boundN else {
 			return nil
 		}
 		
-		guard rangeOfDelimeterEnd.lowerBound > rangeOfDelimeterStart.upperBound else {
-			return nil
-		}
+		let rangeOfDelimeterStart = str.range(of: bound.begin)!
+		let rangeOfDelimeterEnd = str.range(of: bound.end)!
 		
 		let range = Range<String.Index>(uncheckedBounds: (lower: rangeOfDelimeterStart.upperBound, upper: str.index(before: rangeOfDelimeterEnd.lowerBound)))
 		toString = String(str[range.lowerBound...range.upperBound])
